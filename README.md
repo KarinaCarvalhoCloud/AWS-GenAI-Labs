@@ -23,7 +23,6 @@ Este conjunto de projetos envolveu a orquestração dos seguintes serviços:
 
 ## 🧠 Módulo I: Agente Inteligente de IA e RAG
 
-**Referência:** Diagrama **`crie_agente_de_IA.png`**
 
 ### Desafio
 Criar um assistente capaz de responder a perguntas usando uma base de conhecimento privada (técnica **RAG**) e executar ações transacionais (como enviar uma solicitação de RH).
@@ -44,7 +43,6 @@ Demonstração de arquitetura complexa de GenAI, combinando LLMs com sistemas tr
 
 ## 🧪 Módulo II: Deployment, Prompt Engineering e Playground
 
-**Referência:** Diagramas **`Conceitos_basicos_de_IA.png`** e **`Playground_Bedrock.png`**
 
 ### Objetivo
 Implantar e avaliar LLMs no Amazon SageMaker AI e Bedrock, focando na otimização da saída via Prompt Engineering.
@@ -70,14 +68,12 @@ Este módulo abrange a criação de infraestrutura, *pipelines* de processamento
 
 ### A. Alta Disponibilidade e IaaS
 
-**Referência:** Diagrama **`Passos_na_Nuvem.png`**
 
 * **Implementação:** Criação de duas instâncias **EC2** em **Zonas de Disponibilidade (AZs)** separadas (Alta Disponibilidade).
 * **Ganhos:** Domínio de conceitos de Cloud Foundations, como **HA** (High Availability) e uso estratégico de AZs para resiliência.
 
 ### B. Pipeline de Processamento de IA Multimodal
 
-**Referência:** Diagrama **`Serviços_de_IA_com_sagemaker.png`**
 
 * **Implementação:** Construção de um *pipeline* complexo usando o SDK **Boto3** para orquestrar serviços (Polly, Textract, Comprehend, Translate, Transcribe) para processamento de texto, fala e sentimentos.
 * **Ganhos:** Capacidade de criar soluções de IA multimodais e complexas.
