@@ -12,88 +12,92 @@ Este repositório consolida a experiência prática e as implementações realiz
 
 Este conjunto de projetos envolveu a orquestração dos seguintes serviços:
 
-| Categoria | Serviço | Descrição |
+| Categoria | Serviço | Destaque Prático |
 | :--- | :--- | :--- |
-| **Inteligência Artificial** | Amazon Bedrock, SageMaker, Amazon Q | Deployment de LLMs, Prompt Engineering, Criação de Agentes, Modelos Fundacionais (LLaMA 2, Mistral). |
-| **Computação** | AWS Lambda, Amazon EC2 | Funções Serverless para ações de Agentes de IA; Implementação de IaaS (Infraestrutura como Serviço). |
+| **Inteligência Artificial** | Amazon Bedrock, SageMaker, Amazon Q | Deployment de LLMs (LLaMA 2, Mistral), Prompt Engineering, Agentes de IA (RAG). |
+| **Computação** | AWS Lambda, Amazon EC2 | Funções Serverless para ações de Agentes; Implementação de IaaS (Alta Disponibilidade). |
 | **Armazenamento/BD** | Amazon DynamoDB, Amazon S3 | Persistência de metadados e arquivos (Knowledge Base, Logs). |
-| **Segurança/Rede** | IAM (Identity and Access Management) | Criação de políticas de acesso com o Princípio do Menor Privilégio. |
+| **Segurança/Rede** | IAM, Security Groups | Criação de políticas de acesso e implementação de infraestrutura segura. |
 
 ---
 
-## 🧠 Módulo I: Construção de Agente Inteligente de IA (RAG & Ações)
+## 🧠 Módulo I: Agente Inteligente de IA e RAG
 
-**Referência:** Diagrama **"crie_agente_de_IA.png"**
+**Referência:** Diagrama **`crie_agente_de_IA.png`**
 
 ### Desafio
-Criar um assistente inteligente capaz de responder a perguntas usando uma base de conhecimento privada (técnica **RAG**) e executar ações transacionais (como enviar uma solicitação de férias).
+Criar um assistente capaz de responder a perguntas usando uma base de conhecimento privada (técnica **RAG**) e executar ações transacionais (como enviar uma solicitação de RH).
 
 ### Implementação
-1.  **Agente Bedrock:** Configurado para orquestrar o fluxo de interação com o usuário e a tomada de decisão.
-2.  **Knowledge Base (RAG):** Utilizada para acessar documentos não estruturados armazenados no Amazon S3, garantindo que as respostas sejam factuais e baseadas em dados corporativos.
-3.  **Grupo de Ações:** Utilização de duas funções **AWS Lambda** (`submit_leave` e `submit_benefits`) para processar e registrar solicitações, interagindo com o **Amazon DynamoDB**.
+1.  **Agente Bedrock:** Orquestração da interação e tomada de decisão.
+2.  **Knowledge Base (RAG):** Utilizada para acessar documentos de conhecimento (em S3), garantindo respostas factuais.
+3.  **Grupo de Ações:** Funções **AWS Lambda** (`submit_leave` e `submit_benefits`) para processar e registrar solicitações no **DynamoDB**.
 
 ### Ganhos
-Demonstração de arquitetura complexa de GenAI, combinando LLMs com sistemas transacionais para automatizar tarefas internas com segurança e controle de acesso via IAM.
+Demonstração de arquitetura complexa de GenAI, combinando LLMs com sistemas transacionais para automatizar tarefas internas com segurança e controle de acesso.
 
 #### Arquitetura Detalhada: Agente de IA
 
-
+![Diagrama de Arquitetura do Agente de IA com Bedrock, Lambda, DynamoDB e Knowledge Base](assets/crie_agente_de_IA.png)
 
 ---
 
-## 🧪 Módulo II: Deployment e Prompt Engineering (SageMaker)
+## 🧪 Módulo II: Deployment, Prompt Engineering e Playground
 
-**Referência:** Diagrama **"Serviços_de_IA_com_sagemaker.png"**
+**Referência:** Diagramas **`Conceitos_basicos_de_IA.png`** e **`Playground_Bedrock.png`**
 
 ### Objetivo
-Implantar um LLM (Meta LLaMA 3.2 1B Instruct) no Amazon SageMaker AI para configurar um endpoint robusto e testar diferentes técnicas de **Prompt Engineering** para otimização de saída.
+Implantar e avaliar LLMs no Amazon SageMaker AI e Bedrock, focando na otimização da saída via Prompt Engineering.
 
 ### Implementação
-* Uso do **SageMaker Studio** e **JupyterLab Notebook** para interagir, configurar e testar o modelo.
-* Criação de um **Endpoint de Modelo** para permitir o consumo seguro da IA via API com o SageMaker Python SDK.
+* Uso do **SageMaker Studio** para *deployment* de modelos (LLaMA 2) e testes via JupyterLab Notebook.
+* Exploração do **Amazon Bedrock Playground** para comparar e selecionar modelos de base (Mistral vs. Titan) para casos de uso específicos.
 
 ### Ganhos
-Prova de habilidade em **ML Ops** e *deployment* de modelos de Machine Learning na nuvem, além do domínio na aplicação estratégica de prompts para melhoria de performance da GenAI.
+Prova de habilidade em **ML Ops** (Deployment de modelos) e domínio na aplicação estratégica de prompts para melhoria de performance e seleção de modelos mais adequados.
 
-#### Arquitetura Detalhada: SageMaker Deployment
+#### Arquiteturas: Deployment e Avaliação de Modelos
 
+![Diagrama de Conceitos Básicos de IA Generativa com SageMaker Studio e Endpoints](assets/Conceitos_basicos_de_IA.png)
 
+![Diagrama de Playground do Amazon Bedrock para Comparação de Modelos](assets/Playground_Bedrock.png)
 
 ---
 
-## ☁️ Módulo III: Fundamentos de Cloud, Serverless e Multi-Serviços
+## ☁️ Módulo III: Fundamentos de Cloud e Serverless Pipelines
 
-Este módulo abrange a criação de infraestrutura básica, *pipelines* de processamento e a integração de código assistido por IA.
+Este módulo abrange a criação de infraestrutura, *pipelines* de processamento e a integração de código assistido por IA.
 
-### A. Serverless e Amazon Q
+### A. Alta Disponibilidade e IaaS
 
-**Referência:** Diagrama **"construindo_codigo_amazonQ.png"**
+**Referência:** Diagrama **`Passos_na_Nuvem.png`**
 
-* **Implementação:** Utilização do **Amazon Q Developer** para assistência na criação de uma função **Lambda** que interage com o **Bedrock** (para gerar conteúdo) e armazena os dados gerados em S3/DynamoDB.
-* **Ganhos:** Confirmação de *skills* em ambientes Serverless e uso de ferramentas de assistência de código (Amazon Q) para aumentar a produtividade.
+* **Implementação:** Criação de duas instâncias **EC2** em **Zonas de Disponibilidade (AZs)** separadas (Alta Disponibilidade).
+* **Ganhos:** Domínio de conceitos de Cloud Foundations, como **HA** (High Availability) e uso estratégico de AZs para resiliência.
 
-#### Arquitetura: Lambda e Amazon Q
+### B. Pipeline de Processamento de IA Multimodal
 
+**Referência:** Diagrama **`Serviços_de_IA_com_sagemaker.png`**
 
+* **Implementação:** Construção de um *pipeline* complexo usando o SDK **Boto3** para orquestrar serviços (Polly, Textract, Comprehend, Translate, Transcribe) para processamento de texto, fala e sentimentos.
+* **Ganhos:** Capacidade de criar soluções de IA multimodais e complexas.
 
-### B. Alta Disponibilidade e IaaS
+### C. Geração de Código e Hospedagem Web
 
-**Referência:** Diagrama **"Passos_na_nuvem.png"**
+**Referência:** Diagramas **`construindo_codigo_amazonQ.png`** e **`codigo_p_web.png`**
 
-* **Implementação:** Criação de duas instâncias **EC2** em **Zonas de Disponibilidade (AZs)** separadas para garantir resiliência contra falhas de infraestrutura.
-* **Ganhos:** Domínio de conceitos de Cloud Foundations, como **Alta Disponibilidade (HA)** e o uso estratégico de Zonas de Disponibilidade.
+* **Amazon Q:** Uso do **Amazon Q Developer** para assistência na criação de código **Lambda** (geração de histórias) e persistência de dados em S3/DynamoDB.
+* **Hospedagem Web:** Integração de serviços de GenAI (Bedrock) com infraestrutura de hospedagem tradicional (EC2/Session Manager) para gerenciar conteúdo web dinâmico.
 
-#### Arquitetura: Alta Disponibilidade (EC2)
+#### Arquiteturas Detalhadas: Infra e Serviços
 
+![Diagrama de Primeiros Passos na Nuvem com EC2 em AZs separadas](assets/Passos_na_Nuvem.png)
 
+![Diagrama de Pipeline de Serviços de IA com SageMaker e Serviços Cognitivos](assets/Serviços_de_IA_com_sagemaker.png)
 
-### C. Pipeline de Processamento de IA
+![Diagrama de Construção de Código com Amazon Q, Lambda e Bedrock](assets/construindo_codigo_amazonQ.png)
 
-**Referência:** Diagrama **"Serviços_de_IA_com_sagemaker.png"**
-
-* **Implementação:** Criação de um *pipeline* complexo usando o SDK **Boto3** para orquestrar múltiplos serviços de IA (Polly, Textract, Comprehend, Translate, Transcribe) para processamento de texto, fala e sentimentos.
-* **Ganhos:** Capacidade de criar soluções de IA multimodais e complexas integrando diversos serviços da AWS.
+![Diagrama de Geração de Código e Hospedagem Web com Bedrock e EC2](assets/codigo_p_web.png)
 
 ---
 
