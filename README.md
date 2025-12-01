@@ -97,12 +97,3 @@ Este módulo abrange a criação de infraestrutura básica, *pipelines* de proce
 
 ---
 
-## ⏭️ Próximos Passos e Oportunidades
-
-O próximo passo é criar um **projeto *end-to-end*** com foco em **Segurança**, como o **IAM Monitor** ou a **Infraestrutura Segura com Terraform**, para demonstrar a aplicação contínua de boas práticas SecOps.
-
----
-
-**Sua Próxima Ação:**
-
-Agora, vamos detalhar o projeto de **"IAM Monitor – Automação de segurança na AWS"**. Qual é o principal problema de segurança que esse projeto visa resolver?
