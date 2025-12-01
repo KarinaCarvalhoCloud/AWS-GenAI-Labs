@@ -23,7 +23,7 @@ Este conjunto de projetos envolveu a orquestração dos seguintes serviços:
 
 ## 🧠 Módulo I: Construção de Agente Inteligente de IA (RAG & Ações)
 
-**Referência:** Diagrama **"Crie um agente de IA.png"**
+**Referência:** Diagrama **"crie_agente_de_IA.png"**
 
 ### Desafio
 Criar um assistente inteligente capaz de responder a perguntas usando uma base de conhecimento privada (técnica **RAG**) e executar ações transacionais (como enviar uma solicitação de férias).
@@ -44,7 +44,7 @@ Demonstração de arquitetura complexa de GenAI, combinando LLMs com sistemas tr
 
 ## 🧪 Módulo II: Deployment e Prompt Engineering (SageMaker)
 
-**Referência:** Diagrama **"screenshot_20251120114831.png"**
+**Referência:** Diagrama **"Serviços_de_IA_com_sagemaker.png"**
 
 ### Objetivo
 Implantar um LLM (Meta LLaMA 3.2 1B Instruct) no Amazon SageMaker AI para configurar um endpoint robusto e testar diferentes técnicas de **Prompt Engineering** para otimização de saída.
@@ -79,7 +79,7 @@ Este módulo abrange a criação de infraestrutura básica, *pipelines* de proce
 
 ### B. Alta Disponibilidade e IaaS
 
-**Referência:** Diagrama **"Primeiros passos na nuvem.png"**
+**Referência:** Diagrama **"Passos_na_nuvem.png"**
 
 * **Implementação:** Criação de duas instâncias **EC2** em **Zonas de Disponibilidade (AZs)** separadas para garantir resiliência contra falhas de infraestrutura.
 * **Ganhos:** Domínio de conceitos de Cloud Foundations, como **Alta Disponibilidade (HA)** e o uso estratégico de Zonas de Disponibilidade.
